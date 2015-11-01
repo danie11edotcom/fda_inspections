@@ -1,4 +1,4 @@
-# US Food and Drug Administraion Inspection Analysis
+# US Food and Drug Administration Inspection Analysis
 
 Analysis of US FDA inspection data
 
