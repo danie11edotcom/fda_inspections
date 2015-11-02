@@ -1,6 +1,6 @@
 # US Food and Drug Administration Inspection Analysis
 
-Analysis of US FDA inspection classification data from October 2008 through March 2015
+Report of US FDA inspection classifications from October 2008 through March 2015
 
 ##Inspection Classifications*
 <dl> 
