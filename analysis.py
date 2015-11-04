@@ -3,10 +3,12 @@ import pandas as pd
 import numpy as np
 
 #Create dataframe from inspection data csv
-path = 'fda_inspection_data.csv'
+path = 'fda_inspection_data.txt'
 columns = ['district', 'name', 'city', 'state', 'zip', 'country', 'date', 'center', 'area', 'rating']
 inspections = pd.read_csv(path, names=columns)
-#TODO: utf-8 char error
+#TODO: troubleshoot utf-8 char error
 
 #Summarize findings by type and year
+
+
 #Plot summary
