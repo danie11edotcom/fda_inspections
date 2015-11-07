@@ -1,12 +1,17 @@
 #Import libraries
 import pandas as pd
 import numpy as np
+import datetime as dt
 
 #Create dataframe from inspection data csv
 path = 'fda_inspections.xlsx'
-columns = ['district', 'name', 'city', 'state', 'zip', 'country', 'date', 'center', 'area', 'rating']
-#http://stackoverflow.com/questions/31515626/pandas-reading-csv-files
 inspections = pd.read_excel(path, sheetname='Final')
+
+#Rename columns
+inspections.columns = ['district', 'name', 'city', 'state', 'zip', 'country', 'date', 'center', 'area', 'rating']
+
+#Add column to show year using inpsection end date
+inspections['year'] = inspections['Inspection  End Date'].dt.year 
 
 #Summarize findings by type and year
 
