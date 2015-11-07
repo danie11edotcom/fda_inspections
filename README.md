@@ -5,6 +5,7 @@ Analysis of US FDA inspection classifications from October 2008 through March 20
 ##Questions to Answer
 The purpose of analyzing data is to learn the answer to a question(s) and/or to prove or disprove a theory. This analysis seeks to answer the questions below.
 
+- What is the annual summary of each district and each center by year? 
 - How many inspections were peformed annually by center? by district?
 - How many of each rating type was given annually?
 - Which districts had the most good/bad ratings?
