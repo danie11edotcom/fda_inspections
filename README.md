@@ -14,7 +14,8 @@ Summary of US FDA inspection classifications from October 2008 through March 201
 - Volunatry Action Indicated (VAI): objectionable conditions or practices were found that do not meet the threshold of regulatory significance
 - Official Action Indicated (OAI): objectionable conditions or practices were found and regulatory action is warranted
 
-[Center Reference](http://www.fda.gov/RegulatoryInformation/Guidances/ucm125789.htm)
+[Center Reference](http://www.fda.gov/RegulatoryInformation/Guidances/ucm125789.htm)  
+
 [Classification Reference](http://www.fda.gov/downloads/AboutFDA/Transparency/PublicDisclosure/GlossaryofAcronymsandAbbreviations/UCM212061.pdf)
 
 Data downloaded from [FDA site](http://www.fda.gov/ICECI/Inspections/ucm222557.htm) 01 November 2015
