@@ -11,7 +11,7 @@ inspections = pd.read_excel(path, sheetname='Final')
 inspections.columns = ['district', 'name', 'city', 'state', 'zip', 'country', 'date', 'center', 'area', 'rating']
 
 #Add column to show year using inpsection end date
-inspections['year'] = inspections['Inspection  End Date'].dt.year 
+inspections['year'] = inspections['date'].dt.year 
 
 #Summarize findings by type and year
 
