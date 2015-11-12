@@ -13,7 +13,8 @@ inspections.columns = ['district', 'name', 'city', 'state', 'zip', 'country', 'd
 #Add column to show year using inpsection end date
 inspections['year'] = inspections['date'].dt.year 
 
-#change year dtype to a datetime object
+#Change year dtype to a datetime object
+
 
 #Summarize findings by type and year
 
