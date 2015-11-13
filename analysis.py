@@ -16,7 +16,8 @@ inspections['year'] = inspections['date'].dt.year
 #Change year dtype to a datetime object
 
 
-#Summarize findings by type and year
-
+#Summarize findings by type and year (index= year, columns=center, values=rating, aggfunc=func to count o)
+p = pd.pivot_table(inspections, index=['year','rating'], values=['center'],aggfunc=lambda x: len(x.unique()))
+#http://stackoverflow.com/questions/12860421/python-pandas-pivot-table-with-aggfunc-count-unique-distinct
 
 #Plot summary
