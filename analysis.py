@@ -10,14 +10,14 @@ inspections = pd.read_excel(path, sheetname='Final')
 #Rename columns
 inspections.columns = ['district', 'name', 'city', 'state', 'zip', 'country', 'date', 'center', 'area', 'rating']
 
-#Add column to show year using inpsection end date
+#Add column to show year using inspection end date
 inspections['year'] = inspections['date'].dt.year 
 
-#Change year dtype to a datetime object
-
-
-#Summarize findings by type and year (index= year, columns=center, values=rating, aggfunc=func to count o)
-p = pd.pivot_table(inspections, index=['year','center'], columns='rating' values=['name'],aggfunc=lambda x: len(x)
+#Summarize ratings by year and center
+p = pd.pivot_table(inspections, index=['year','center'], columns='rating' values=['name'],aggfunc=lambda x: len(x))
 #http://stackoverflow.com/questions/12860421/python-pandas-pivot-table-with-aggfunc-count-unique-distinct
+
+#Summarize ratings by year, center and project area
+p2 = pd.pivot_table(inspections, index=['year','center','area'], columns='rating', values=['name'],aggfunc=lambda x: len(x))
 
 #Plot summary
