@@ -17,10 +17,6 @@ The purpose of analyzing data is to learn the answer to a question(s) and/or to 
 - What is the highest number of inspections (regardless of rating) by region?
 - Do more inspections occur closer to MD where the centers are located?
 
-##Visualizations
-- Tableau Public (upcoming)
-- Web browser (HTML/CSS/JS)
-
 ###General Information and Definitions
 [FDA Centers](http://www.fda.gov/RegulatoryInformation/Guidances/ucm125789.htm)
 - Center for Biologics Evaluation and Research (CBER)
