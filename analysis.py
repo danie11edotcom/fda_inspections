@@ -15,10 +15,10 @@ inspections.columns = ['district', 'name', 'city', 'state', 'zip', 'country', 'd
 inspections['year'] = inspections['date'].dt.year 
 
 #Summarize ratings by year and center
-p = pd.pivot_table(inspections, index=['year','center'], columns='rating', values=['name'],aggfunc=lambda x: len(x))
+p = pd.pivot_table(inspections, index=['year','center'], columns='rating', values=['name'], aggfunc=lambda x: len(x))
 #http://stackoverflow.com/questions/12860421/python-pandas-pivot-table-with-aggfunc-count-unique-distinct
 
 #Summarize ratings by year, center and project area
-p2 = pd.pivot_table(inspections, index=['year','center','area'], columns='rating', values=['name'],aggfunc=lambda x: len(x))
+p2 = pd.pivot_table(inspections, index=['year','center','area'], columns='rating', values=['name'], aggfunc=lambda x: len(x))
 
 #Plot summary
