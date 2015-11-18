@@ -21,4 +21,7 @@ p = pd.pivot_table(inspections, index=['year','center'], columns='rating', value
 #Summarize ratings by year, center and project area
 p2 = pd.pivot_table(inspections, index=['year','center','area'], columns='rating', values=['name'], aggfunc=lambda x: len(x))
 
+#Summarize ratings by year, center, project area and district
+p3 = pd.pivot_table(inspections, index=['year','center','area', 'district'], columns='rating', values=['name'], aggfunc=lambda x: len(x))
+
 #Plot summary
