@@ -9,11 +9,11 @@ The purpose of analyzing data is to learn the answer to a question(s) and/or to 
 - How many inspections were peformed annually by center? by district?
 - How many of each rating type was given annually?
 - Which districts had the most good/bad ratings?
-- How many violation types were given annually by district? How does this look on the map?
+- How many rating types were given annually by district? How does this look on the map?
 - How many of each rating type was done annually total? by district?
 - How many of each rating type was given for each area overall? by district?
 - Were multiple inspections performed for the same company? If so, were the OAI findings reinspected? What was the result?
-- What types of inspections are performed by each center?
+- What types of inspections are performed by each center (project areas)?
 - What is the highest number of inspections (regardless of rating) by region?
 - Do more inspections occur closer to MD where the centers are located?
 
