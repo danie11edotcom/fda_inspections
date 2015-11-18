@@ -12,7 +12,7 @@ inspections = pd.read_excel(path, sheetname='Final')
 inspections.columns = ['district', 'name', 'city', 'state', 'zip', 'country', 'date', 'center', 'area', 'rating']
 
 #Add column to show year using inspection end date
-#inspections['year'] = inspections['date'].dt.year 
+inspections['year'] = inspections['date'].dt.year 
 inspections['year'] = pd.to_datetime(inspections['year'], format='%Y')
 
 #Add column named one to add a one to each record to use sum function to count
