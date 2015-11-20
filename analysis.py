@@ -34,6 +34,8 @@ total_insp_area = pd.pivot_table(inspections, index=['year','center','area'], co
 total_insp_district = pd.pivot_table(inspections, index=['year','center','area', 'district'], columns='rating', values='one', aggfunc=sum)
 
 #Plot summary of individual center ratings by year
-# total_insp_center.query('center == ["CVM"]').plot()
 # write function to substitute each center name and plot
 # centers = ['CBER','CDER', 'CDRH', 'CVM','CFSAN']
+#def center_ratings:
+	# for each item in list subsitite center_name with list
+	# total_insp_center.query('center == ["CVM"]').plot()
