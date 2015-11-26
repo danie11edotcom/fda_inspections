@@ -37,3 +37,11 @@ total_insp_district = pd.pivot_table(inspections, index=['year','center','area',
 centers = ['CBER','CDER', 'CDRH', 'CVM','CFSAN']
 # for each item in list subsitite center_name with list
 # 		total_insp_center.query('center == ["CVM"]').plot()
+
+#CBER summary
+#create dataframe for cber inspections
+cber = inspections[inspections.center == 'CBER']
+#summarize ratings by year
+cber_pivot = pd.pivot_table(cber, index='year', columns='rating', values='one', aggfunc=sum)
+#plot and save image
+cber_pivot.plot()
