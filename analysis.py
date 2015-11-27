@@ -39,10 +39,19 @@ centers = ['CBER','CDER', 'CDRH', 'CVM','CFSAN']
 # 		total_insp_center.query('center == ["CVM"]').plot()
 
 #CBER summary
-#create dataframe for cber inspections
+#create dataframe for cber inspections 
 cber = inspections[inspections.center == 'CBER']
 #summarize ratings by year
 cber_pivot = pd.pivot_table(cber, index='year', columns='rating', values='one', aggfunc=sum)
 #plot and save image
 cber_pivot.plot()
-#cber_pivot.to_json(date_format='iso', date_unit='s'
+#cber_pivot.to_json(date_format='iso', date_unit='s')
+
+
+#Write functions and loop to summarize each center
+
+#def center_df(center):
+		#center = inspections[inspections.center == "'" + center + "'"]
+
+#def center_pivot(center)
+		#center_pivot = pd.pivot_table(center, index='year', columns='rating', values='one', aggfunc=sum)
