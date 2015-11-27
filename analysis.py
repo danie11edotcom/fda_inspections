@@ -45,3 +45,4 @@ cber = inspections[inspections.center == 'CBER']
 cber_pivot = pd.pivot_table(cber, index='year', columns='rating', values='one', aggfunc=sum)
 #plot and save image
 cber_pivot.plot()
+#cber_pivot.to_json(date_format='iso', date_unit='s'
