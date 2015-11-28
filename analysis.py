@@ -9,7 +9,8 @@ path = 'fda_inspections.xlsx'
 inspections = pd.read_excel(path, sheetname='Final')
 
 #Rename columns
-inspections.columns = ['district', 'name', 'city', 'state', 'zip', 'country', 'date', 'center', 'area', 'rating']
+columns = ['district', 'name', 'city', 'state', 'zip', 'country', 'date', 'center', 'area', 'rating']
+inspections.columns = columns
 
 #Add column to show year using inspection end date
 inspections['year'] = inspections['date'].dt.year 
@@ -21,21 +22,6 @@ inspections['one'] = 1
 #Remove partial years (2008 and 2015)
 less_2008 = inspections[inspections.year != '2008']
 full_years = less_2008[less_2008.year != '2015']
-
-#Count total inspections by year
-total_insp = pd.pivot_table(full_years, index='year', values='one', aggfunc=sum)
-
-#Count total ratings by year
-total_insp_rating = pd.pivot_table(full_years, index='year', columns='rating', values='one', aggfunc=sum)
-
-#Summarize ratings by year and center
-total_insp_center = pd.pivot_table(full_years, index=['year','center'], columns='rating', values='one', aggfunc=sum)
-
-#Summarize ratings by year, center and project area
-total_insp_area = pd.pivot_table(full_years, index=['year','center','area'], columns='rating', values='one', aggfunc=sum)
-
-#Summarize ratings by year, center, project area and district
-total_insp_district = pd.pivot_table(full_years, index=['year','center','area', 'district'], columns='rating', values='one', aggfunc=sum)
 
 #Plot summary of individual center ratings by year
 centers = ['CBER','CDER', 'CDRH', 'CVM','CFSAN']
@@ -63,6 +49,22 @@ def add_percent(table):
 cber_area = pd.pivot_table(cber, index=['year','area'], columns='rating', values='one', aggfunc=sum)
 #summarize ratings by year, project area and district
 cber_district = pd.pivot_table(cber, index=['year','area', 'district'], columns='rating', values='one', aggfunc=sum)
+
+
+# #Count total inspections by year
+# total_insp = pd.pivot_table(full_years, index='year', values='one', aggfunc=sum)
+
+# #Count total ratings by year
+# total_insp_rating = pd.pivot_table(full_years, index='year', columns='rating', values='one', aggfunc=sum)
+
+# #Summarize ratings by year and center
+# total_insp_center = pd.pivot_table(full_years, index=['year','center'], columns='rating', values='one', aggfunc=sum)
+
+# #Summarize ratings by year, center and project area
+# total_insp_area = pd.pivot_table(full_years, index=['year','center','area'], columns='rating', values='one', aggfunc=sum)
+
+# #Summarize ratings by year, center, project area and district
+# total_insp_district = pd.pivot_table(full_years, index=['year','center','area', 'district'], columns='rating', values='one', aggfunc=sum)
 
 #Write functions and loop to summarize each center
 
