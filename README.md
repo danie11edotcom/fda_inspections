@@ -11,6 +11,14 @@ The purpose of analyzing data is to learn the answer to a question(s) and/or to 
 - Were multiple inspections performed for the same company? If so, were the OAI findings reinspected? What was the result?
 - Do more inspections occur closer to MD where the centers are located?
 
+##Analysis Process
+1. Download inspection [data](http://www.fda.gov/ICECI/Inspections/ucm222557.htm)
+2. Remove years with partial inspection results (2008 and 2015)
+3. Select first center and summarize results by year, project area and district
+4. Export summaries to excel (not csv so that I can add multiple sheets to one workbook with excel writer)
+5. Plot with Excel
+6. Report results
+
 ###General Information and Definitions
 [FDA Centers](http://www.fda.gov/RegulatoryInformation/Guidances/ucm125789.htm)
 - Center for Biologics Evaluation and Research (CBER)
