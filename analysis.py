@@ -46,11 +46,16 @@ centers = ['CBER','CDER', 'CDRH', 'CVM','CFSAN']
 #create dataframe for cber inspections 
 cber = full_years[full_years.center == 'CBER']
 #summarize ratings by year
-cber_pivot = pd.pivot_table(cber, index='year', columns='rating', values='one', aggfunc=sum)
-#plot and save image
-cber_pivot.plot()
-#cber_pivot.to_json(date_format='iso', date_unit='s')
+cber_year = pd.pivot_table(cber, index='year', columns='rating', values='one', aggfunc=sum)
 
+#plot and save image
+#cber_year.plot()
+#cber_year.to_json(date_format='iso', date_unit='s')
+
+#summarize ratings by year and project area
+cber_area = pd.pivot_table(cber, index=['year','area'], columns='rating', values='one', aggfunc=sum)
+#summarize ratings by year, project area and district
+cber_district = pd.pivot_table(cber, index=['year','area', 'district'], columns='rating', values='one', aggfunc=sum)
 
 #Write functions and loop to summarize each center
 
