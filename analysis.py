@@ -35,7 +35,6 @@ def add_percent(table):
 #CBER summary
 #create dataframe for cber inspections 
 cber = full_years[full_years.center == 'CBER']
-add_percent(cber)
 
 #summarize ratings by year
 cber_year = pd.pivot_table(cber, index='year', columns='rating', values='one', aggfunc=sum)
