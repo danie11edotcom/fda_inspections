@@ -53,12 +53,12 @@ cber_district = cber_district[cols]
 add_percent(cber_district)
 
 #create excel file with each center summary
-writer = pd.ExcelWriter('output.xlsx', engine='xlsxwriter')
-cber.to_excel(writer, 'cber')
-cber_year.to_excel(writer,'cber_year')
-cber_area.to_excel(writer, 'cber_area')
-cber_district.to_excel(writer, 'cber_district')
-writer.save()
+# writer = pd.ExcelWriter('output.xlsx', engine='xlsxwriter')
+# cber.to_excel(writer, 'cber')
+# cber_year.to_excel(writer,'cber_year')
+# cber_area.to_excel(writer, 'cber_area')
+# cber_district.to_excel(writer, 'cber_district')
+# writer.save()
 
 
 
