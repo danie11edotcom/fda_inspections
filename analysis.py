@@ -49,6 +49,8 @@ add_percent(cber_area)
 
 #Summarize ratings by year, project area and district
 cber_district = pd.pivot_table(cber, index=['year','area', 'district'], columns='rating', values='one', aggfunc=sum)
+#fill blanks with 0
+cber_district = cber_district.convert_objects(convert_numeric=True).fillna(0)
 cber_district = cber_district[cols]
 add_percent(cber_district)
 
@@ -59,7 +61,7 @@ cber_year.to_excel(writer,'cber_year')
 cber_area.to_excel(writer, 'cber_area')
 cber_district.to_excel(writer, 'cber_district')
 writer.save()
-
+#no sum or % calculations where sum of rating is blank (0)
 
 #######################################################################
 #plot and save image
