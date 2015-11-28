@@ -1,6 +1,6 @@
 #Food and Drug Administration Inspections Report
 
-##Analysis
+##Analysis Process
 1. Step 1: download inspection data
 2. Step 2: remove years with partial inspection results (2008 and 2015)
 3. Step 3: select first center and summarize results by year, project area and district
