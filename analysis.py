@@ -61,4 +61,5 @@ cber_year.to_excel(writer,'cber_year')
 cber_area.to_excel(writer, 'cber_area')
 cber_district.to_excel(writer, 'cber_district')
 writer.save()
-#no sum or % calculations where sum of rating is blank (0)
+
+#TODO: write function(s) to repeat same summary for each of the 5 FDA centers without retyping the same code
