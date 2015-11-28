@@ -18,20 +18,24 @@ inspections['year'] = pd.to_datetime(inspections['year'], format='%Y')
 #Add column named one to add a one to each record to use sum function to count
 inspections['one'] = 1
 
+#Remove partial years (2008 and 2015)
+less_2008 = inspections[inspections.year != '2008']
+full_years = less_2008[less_2008.year != '2015']
+
 #Count total inspections by year
-total_insp = pd.pivot_table(inspections, index='year', values='one', aggfunc=sum)
+total_insp = pd.pivot_table(full_years, index='year', values='one', aggfunc=sum)
 
 #Count total ratings by year
-total_insp_rating = pd.pivot_table(inspections, index='year', columns='rating', values='one', aggfunc=sum)
+total_insp_rating = pd.pivot_table(full_years, index='year', columns='rating', values='one', aggfunc=sum)
 
 #Summarize ratings by year and center
-total_insp_center = pd.pivot_table(inspections, index=['year','center'], columns='rating', values='one', aggfunc=sum)
+total_insp_center = pd.pivot_table(full_years, index=['year','center'], columns='rating', values='one', aggfunc=sum)
 
 #Summarize ratings by year, center and project area
-total_insp_area = pd.pivot_table(inspections, index=['year','center','area'], columns='rating', values='one', aggfunc=sum)
+total_insp_area = pd.pivot_table(full_years, index=['year','center','area'], columns='rating', values='one', aggfunc=sum)
 
 #Summarize ratings by year, center, project area and district
-total_insp_district = pd.pivot_table(inspections, index=['year','center','area', 'district'], columns='rating', values='one', aggfunc=sum)
+total_insp_district = pd.pivot_table(full_years, index=['year','center','area', 'district'], columns='rating', values='one', aggfunc=sum)
 
 #Plot summary of individual center ratings by year
 centers = ['CBER','CDER', 'CDRH', 'CVM','CFSAN']
@@ -40,7 +44,7 @@ centers = ['CBER','CDER', 'CDRH', 'CVM','CFSAN']
 
 #CBER summary
 #create dataframe for cber inspections 
-cber = inspections[inspections.center == 'CBER']
+cber = full_years[full_years.center == 'CBER']
 #summarize ratings by year
 cber_pivot = pd.pivot_table(cber, index='year', columns='rating', values='one', aggfunc=sum)
 #plot and save image
