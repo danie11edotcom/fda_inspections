@@ -62,31 +62,3 @@ cber_area.to_excel(writer, 'cber_area')
 cber_district.to_excel(writer, 'cber_district')
 writer.save()
 #no sum or % calculations where sum of rating is blank (0)
-
-#######################################################################
-#plot and save image
-#cber_year.plot()
-#cber_year.to_json(date_format='iso', date_unit='s')
-
-# #Count total inspections by year
-# total_insp = pd.pivot_table(full_years, index='year', values='one', aggfunc=sum)
-
-# #Count total ratings by year
-# total_insp_rating = pd.pivot_table(full_years, index='year', columns='rating', values='one', aggfunc=sum)
-
-# #Summarize ratings by year and center
-# total_insp_center = pd.pivot_table(full_years, index=['year','center'], columns='rating', values='one', aggfunc=sum)
-
-# #Summarize ratings by year, center and project area
-# total_insp_area = pd.pivot_table(full_years, index=['year','center','area'], columns='rating', values='one', aggfunc=sum)
-
-# #Summarize ratings by year, center, project area and district
-# total_insp_district = pd.pivot_table(full_years, index=['year','center','area', 'district'], columns='rating', values='one', aggfunc=sum)
-
-#Write functions and loop to summarize each center
-
-#def center_df(center):
-		#center = inspections[inspections.center == "'" + center + "'"]
-
-#def center_pivot(center)
-		#center_pivot = pd.pivot_table(center, index='year', columns='rating', values='one', aggfunc=sum)
