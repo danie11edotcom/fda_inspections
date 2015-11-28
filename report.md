@@ -2,7 +2,9 @@
 
 ##Analysis
 1. Step 1: download inspection data
-2. Step 2: 
+2. Step 2: remove years with partial inspection results (2008 and 2015)
+3. Step 3: select first center and summarize results by year, project area and district
+4. 
 
 ##Overall Summary
 - summarize inspection process and types of inspections
