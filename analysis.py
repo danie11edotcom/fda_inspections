@@ -52,7 +52,7 @@ cber_district = pd.pivot_table(cber, index=['year','area', 'district'], columns=
 cber_district = cber_district[cols]
 add_percent(cber_district)
 
-#Create excel file with each center summary
+#Create excel file with each center summary (not csv so that I can add multiple sheets to one workbook with excel writer)
 writer = pd.ExcelWriter('output.xlsx', engine='xlsxwriter')
 cber.to_excel(writer, 'cber')
 cber_year.to_excel(writer,'cber_year')
