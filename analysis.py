@@ -26,7 +26,7 @@ full_years = less_2008[less_2008.year != '2015']
 centers = ['CBER','CDER', 'CDRH', 'CVM','CFSAN']
 cols = ['NAI', 'VAI', 'OAI' ]
 
-#add function to add sum and percentage for year
+#Add function to add sum and percentage for year
 def add_percent(table):
 		table['sum'] = (table['NAI']) + (table['VAI']) + (table['OAI'])
 		table['NAIp'] = (table['NAI']) / (table['sum']) * 100
@@ -34,34 +34,31 @@ def add_percent(table):
 		table['OAIp'] = (table['OAI']) / (table['sum']) * 100
 
 #CBER summary
-#create dataframe for cber inspections 
+#Create dataframe for cber inspections 
 cber = full_years[full_years.center == 'CBER']
 
-#summarize ratings by year
+#Summarize ratings by year
 cber_year = pd.pivot_table(cber, index='year', columns='rating', values='one', aggfunc=sum)
 cber_year = cber_year[cols]
 add_percent(cber_year)
 
-#summarize ratings by year and project area
+#Summarize ratings by year and project area
 cber_area = pd.pivot_table(cber, index=['year','area'], columns='rating', values='one', aggfunc=sum)
 cber_area = cber_area[cols]
 add_percent(cber_area)
 
-#summarize ratings by year, project area and district
+#Summarize ratings by year, project area and district
 cber_district = pd.pivot_table(cber, index=['year','area', 'district'], columns='rating', values='one', aggfunc=sum)
 cber_district = cber_district[cols]
 add_percent(cber_district)
 
-#create excel file with each center summary
-# writer = pd.ExcelWriter('output.xlsx', engine='xlsxwriter')
-# cber.to_excel(writer, 'cber')
-# cber_year.to_excel(writer,'cber_year')
-# cber_area.to_excel(writer, 'cber_area')
-# cber_district.to_excel(writer, 'cber_district')
-# writer.save()
-
-
-
+#Create excel file with each center summary
+writer = pd.ExcelWriter('output.xlsx', engine='xlsxwriter')
+cber.to_excel(writer, 'cber')
+cber_year.to_excel(writer,'cber_year')
+cber_area.to_excel(writer, 'cber_area')
+cber_district.to_excel(writer, 'cber_district')
+writer.save()
 
 
 #######################################################################
