@@ -47,11 +47,13 @@ centers = ['CBER','CDER', 'CDRH', 'CVM','CFSAN']
 cber = full_years[full_years.center == 'CBER']
 #summarize ratings by year
 cber_year = pd.pivot_table(cber, index='year', columns='rating', values='one', aggfunc=sum)
-#add sum and percentage for year
-cber_year['sum'] = (cber_year['NAI']) + (cber_year['OAI']) + (cber_year['VAI'])
-cber_year['NAIp'] = (cber_year['NAI']) / (cber_year['sum'] * 100)
-cber_year['OAIp'] = (cber_year['OAI']) / (cber_year['sum'] * 100)
-cber_year['VAIp'] = (cber_year['VAI']) / (cber_year['sum'] * 100)
+#add function to add sum and percentage for year
+def add_percent(table):
+		table['sum'] = (table['NAI']) + (table['OAI']) + (table['VAI'])
+		table['NAIp'] = (table['NAI']) / (table['sum']) * 100
+		table['OAIp'] = (table['OAI']) / (table['sum']) * 100
+		table['VAIp'] = (table['VAI']) / (table['sum']) * 100
+
 
 #plot and save image
 #cber_year.plot()
