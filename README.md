@@ -12,12 +12,12 @@ The purpose of analyzing data is to learn the answer to a question(s) and/or to 
 - Do more inspections occur closer to MD where the centers are located?
 
 ##Analysis Process
-1. Download inspection [data](http://www.fda.gov/ICECI/Inspections/ucm222557.htm)
-2. Remove years with partial inspection results (2008 and 2015)
-3. Select first center and summarize results by year, project area and district
-4. Export summaries to excel (not csv so that I can add multiple sheets to one workbook with excel writer)
-5. Plot with Excel
-6. Report results
+1. Download inspection [raw data](http://www.fda.gov/ICECI/Inspections/ucm222557.htm)
+2. Clean and prepare data for analysis
+3. Analyze results for each center by year, project area and district
+4. Export summaries to Excel
+5. Plot summaries in Excel
+6. Report results including Excel chart images
 
 ###General Information and Definitions
 [FDA Centers](http://www.fda.gov/RegulatoryInformation/Guidances/ucm125789.htm)
