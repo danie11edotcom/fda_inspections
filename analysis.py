@@ -33,7 +33,7 @@ def add_percent(table):
 		table['VAIp'] = (table['VAI']) / (table['sum']) * 100
 		table['OAIp'] = (table['OAI']) / (table['sum']) * 100
 
-#CBER summary
+###CBER Summary###
 #Create dataframe for cber inspections 
 cber = full_years[full_years.center == 'CBER']
 
@@ -54,12 +54,30 @@ cber_district = cber_district.convert_objects(convert_numeric=True).fillna(0)
 cber_district = cber_district[cols]
 add_percent(cber_district)
 
+###CDER Summary###
+cder = full_years[full_years.center == 'CDER']
+cder_year = pd.pivot_table(cder, index='year', columns='rating', values='one', aggfunc=sum)
+cder_year = cber_year[cols]
+add_percent(cder_year)
+cder_area = pd.pivot_table(cder, index=['year','area'], columns='rating', values='one', aggfunc=sum)
+cder_area = cder_area[cols]
+add_percent(cder_area)
+cder_district = pd.pivot_table(cder, index=['year','area', 'district'], columns='rating', values='one', aggfunc=sum)
+cder_district = cder_district.convert_objects(convert_numeric=True).fillna(0)
+cder_district = cder_district[cols]
+add_percent(cder_district)
+
+
 #Create excel file with each center summary (not csv so that I can add multiple sheets to one workbook with excel writer)
 writer = pd.ExcelWriter('output.xlsx', engine='xlsxwriter')
 cber.to_excel(writer, 'cber')
 cber_year.to_excel(writer,'cber_year')
 cber_area.to_excel(writer, 'cber_area')
 cber_district.to_excel(writer, 'cber_district')
+cder.to_excel(writer, 'cder')
+cder_year.to_excel(writer,'cder_year')
+cder_area.to_excel(writer, 'cder_area')
+cder_district.to_excel(writer, 'cder_district')
 writer.save()
 
 #TODO: write function(s) to repeat same summary for each of the 5 FDA centers without retyping the same code
