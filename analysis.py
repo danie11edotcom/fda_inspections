@@ -28,7 +28,7 @@ cols = ['NAI', 'VAI', 'OAI' ]
 
 #Add function to add sum and percentage for year
 def add_percent(table):
-		table['sum'] = (table['NAI']) + (table['VAI']) + (table['OAI'])
+		table['SUM'] = (table['NAI']) + (table['VAI']) + (table['OAI'])
 		table['NAIp'] = (table['NAI']) / (table['sum']) * 100
 		table['VAIp'] = (table['VAI']) / (table['sum']) * 100
 		table['OAIp'] = (table['OAI']) / (table['sum']) * 100
