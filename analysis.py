@@ -40,32 +40,32 @@ cber = full_years[full_years.center == 'CBER']
 #Summarize ratings by year
 cber_year = pd.pivot_table(cber, index='year', columns='rating', values='one', aggfunc=sum)
 cber_year = cber_year[cols]
-add_percent(cber_year)
+cber_year = add_percent(cber_year)
 
 #Summarize ratings by year and project area
 cber_area = pd.pivot_table(cber, index=['year','area'], columns='rating', values='one', aggfunc=sum)
 cber_area = cber_area[cols]
-add_percent(cber_area)
+cber_area = add_percent(cber_area)
 
 #Summarize ratings by year, project area and district
 cber_district = pd.pivot_table(cber, index=['year','area', 'district'], columns='rating', values='one', aggfunc=sum)
 #fill blanks with 0
 cber_district = cber_district.convert_objects(convert_numeric=True).fillna(0)
 cber_district = cber_district[cols]
-add_percent(cber_district)
+cber_district = add_percent(cber_district)
 
 ###CDER Summary###
 cder = full_years[full_years.center == 'CDER']
 cder_year = pd.pivot_table(cder, index='year', columns='rating', values='one', aggfunc=sum)
 cder_year = cber_year[cols]
-add_percent(cder_year)
+cder_year = add_percent(cder_year)
 cder_area = pd.pivot_table(cder, index=['year','area'], columns='rating', values='one', aggfunc=sum)
 cder_area = cder_area[cols]
-add_percent(cder_area)
+cder_area = add_percent(cder_area)
 cder_district = pd.pivot_table(cder, index=['year','area', 'district'], columns='rating', values='one', aggfunc=sum)
 cder_district = cder_district.convert_objects(convert_numeric=True).fillna(0)
 cder_district = cder_district[cols]
-add_percent(cder_district)
+cder_district = add_percent(cder_district)
 
 
 #Create excel file with each center summary (not csv so that I can add multiple sheets to one workbook with excel writer)
