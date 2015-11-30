@@ -81,3 +81,10 @@ cder_district.to_excel(writer, 'cder_district')
 writer.save()
 
 #TODO: write function(s) to repeat same summary for each of the 5 FDA centers without retyping the same code
+
+#TODO: Research warning below for add_percent function def
+# C:\Users\Network Admin 02\Desktop\fda_inspections\analysis.py:34: SettingWithCopyWarning: 
+# A value is trying to be set on a copy of a slice from a DataFrame.
+# Try using .loc[row_indexer,col_indexer] = value instead
+
+# See the the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
