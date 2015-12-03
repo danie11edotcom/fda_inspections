@@ -67,6 +67,18 @@ cder_district = cder_district.convert_objects(convert_numeric=True).fillna(0)
 cder_district = cder_district[cols]
 add_percent(cder_district)
 
+###CDRH Summary###
+cdrh = full_years[full_years.center == 'CDRH']
+cdrh_year = pd.pivot_table(cder, index='year', columns='rating', values='one', aggfunc=sum)
+cdrh_year = cber_year[cols]
+add_percent(cdrh_year)
+cdrh_area = pd.pivot_table(cder, index=['year','area'], columns='rating', values='one', aggfunc=sum)
+cdrh_area = cder_area[cols]
+add_percent(cdrh_area)
+cdrh_district = pd.pivot_table(cder, index=['year','area', 'district'], columns='rating', values='one', aggfunc=sum)
+cdrh_district = cdrh_district.convert_objects(convert_numeric=True).fillna(0)
+cdrh_district = cdrh_district[cols]
+add_percent(cdrh_district)
 
 #Create excel file with each center summary (not csv so that I can add multiple sheets to one workbook with excel writer)
 writer = pd.ExcelWriter('output.xlsx', engine='xlsxwriter')
@@ -78,6 +90,10 @@ cder.to_excel(writer, 'cder')
 cder_year.to_excel(writer,'cder_year')
 cder_area.to_excel(writer, 'cder_area')
 cder_district.to_excel(writer, 'cder_district')
+cdrh.to_excel(writer, 'cdrh')
+cdrh_year.to_excel(writer,'cdrh_year')
+cdrh_area.to_excel(writer, 'cdrh_area')
+cdrh_district.to_excel(writer, 'cdrh_district')
 writer.save()
 
 #TODO: write function(s) to repeat same summary for each of the 5 FDA centers without retyping the same code
