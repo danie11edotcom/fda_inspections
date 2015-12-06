@@ -80,6 +80,19 @@ cdrh_district = cdrh_district.convert_objects(convert_numeric=True).fillna(0)
 cdrh_district = cdrh_district[cols]
 add_percent(cdrh_district)
 
+###CVM Summary###
+cvm = full_years[full_years.center == 'CVM']
+cvm_year = pd.pivot_table(cder, index='year', columns='rating', values='one', aggfunc=sum)
+cvm_year = cvm_year[cols]
+add_percent(cvm_year)
+cvm_area = pd.pivot_table(cder, index=['year','area'], columns='rating', values='one', aggfunc=sum)
+cvm_area = cvm_area[cols]
+add_percent(cvm_area)
+cvm_district = pd.pivot_table(cder, index=['year','area', 'district'], columns='rating', values='one', aggfunc=sum)
+cvm_district = cvm_district.convert_objects(convert_numeric=True).fillna(0)
+cvm_district = cvm_district[cols]
+add_percent(cvm_district)
+
 #Create excel file with each center summary (not csv so that I can add multiple sheets to one workbook with excel writer)
 writer = pd.ExcelWriter('output.xlsx', engine='xlsxwriter')
 cber.to_excel(writer, 'cber')
@@ -94,6 +107,10 @@ cdrh.to_excel(writer, 'cdrh')
 cdrh_year.to_excel(writer,'cdrh_year')
 cdrh_area.to_excel(writer, 'cdrh_area')
 cdrh_district.to_excel(writer, 'cdrh_district')
+cvm.to_excel(writer, 'cvm')
+cvm_year.to_excel(writer,'cvm_year')
+cvm_area.to_excel(writer, 'cvm_area')
+cvm_district.to_excel(writer, 'cvm_district')
 writer.save()
 
 #TODO: write function(s) to repeat same summary for each of the 5 FDA centers without retyping the same code
