@@ -125,6 +125,10 @@ cvm.to_excel(writer, 'cvm')
 cvm_year.to_excel(writer,'cvm_year')
 cvm_area.to_excel(writer, 'cvm_area')
 cvm_district.to_excel(writer, 'cvm_district')
+cfsan.to_excel(writer, 'cfsan')
+cfsan_year.to_excel(writer,'cfsan_year')
+cfsan_area.to_excel(writer, 'cfsan_area')
+cfsan_district.to_excel(writer, 'cfsan_district')
 writer.save()
 
 #TODO: write function(s) to repeat same summary for each of the 5 FDA centers without retyping the same code
