@@ -69,29 +69,43 @@ add_percent(cder_district)
 
 ###CDRH Summary###
 cdrh = full_years[full_years.center == 'CDRH']
-cdrh_year = pd.pivot_table(cder, index='year', columns='rating', values='one', aggfunc=sum)
+cdrh_year = pd.pivot_table(cdrh, index='year', columns='rating', values='one', aggfunc=sum)
 cdrh_year = cber_year[cols]
 add_percent(cdrh_year)
-cdrh_area = pd.pivot_table(cder, index=['year','area'], columns='rating', values='one', aggfunc=sum)
+cdrh_area = pd.pivot_table(cdrh, index=['year','area'], columns='rating', values='one', aggfunc=sum)
 cdrh_area = cder_area[cols]
 add_percent(cdrh_area)
-cdrh_district = pd.pivot_table(cder, index=['year','area', 'district'], columns='rating', values='one', aggfunc=sum)
+cdrh_district = pd.pivot_table(cdrh, index=['year','area', 'district'], columns='rating', values='one', aggfunc=sum)
 cdrh_district = cdrh_district.convert_objects(convert_numeric=True).fillna(0)
 cdrh_district = cdrh_district[cols]
 add_percent(cdrh_district)
 
 ###CVM Summary###
 cvm = full_years[full_years.center == 'CVM']
-cvm_year = pd.pivot_table(cder, index='year', columns='rating', values='one', aggfunc=sum)
+cvm_year = pd.pivot_table(cvm, index='year', columns='rating', values='one', aggfunc=sum)
 cvm_year = cvm_year[cols]
 add_percent(cvm_year)
-cvm_area = pd.pivot_table(cder, index=['year','area'], columns='rating', values='one', aggfunc=sum)
+cvm_area = pd.pivot_table(cvm, index=['year','area'], columns='rating', values='one', aggfunc=sum)
 cvm_area = cvm_area[cols]
 add_percent(cvm_area)
-cvm_district = pd.pivot_table(cder, index=['year','area', 'district'], columns='rating', values='one', aggfunc=sum)
+cvm_district = pd.pivot_table(cvm, index=['year','area', 'district'], columns='rating', values='one', aggfunc=sum)
 cvm_district = cvm_district.convert_objects(convert_numeric=True).fillna(0)
 cvm_district = cvm_district[cols]
 add_percent(cvm_district)
+
+###CFSAN Summary###
+cfsan = full_years[full_years.center == 'CFSAN']
+cfsan_year = pd.pivot_table(cfsan, index='year', columns='rating', values='one', aggfunc=sum)
+cfsan_year = cfsan_year[cols]
+add_percent(cfsan_year)
+cfsan_area = pd.pivot_table(cfsan, index=['year','area'], columns='rating', values='one', aggfunc=sum)
+cfsan_area = cfsan_area[cols]
+add_percent(cfsan_area)
+cfsan_district = pd.pivot_table(cfsan, index=['year','area', 'district'], columns='rating', values='one', aggfunc=sum)
+cfsan_district = cdrh_district.convert_objects(convert_numeric=True).fillna(0)
+cfsan_district = cdrh_district[cols]
+add_percent(cfsan_district)
+
 
 #Create excel file with each center summary (not csv so that I can add multiple sheets to one workbook with excel writer)
 writer = pd.ExcelWriter('output.xlsx', engine='xlsxwriter')
