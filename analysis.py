@@ -26,12 +26,15 @@ full_years = less_2008[less_2008.year != '2015']
 centers = ['CBER','CDER', 'CDRH', 'CVM','CFSAN']
 cols = ['NAI', 'VAI', 'OAI' ]
 
-#Add function to add sum and percentage for year
+#Function to add sum and percentage for year
 def add_percent(table):
 		table['SUM'] = (table['NAI']) + (table['VAI']) + (table['OAI'])
 		table['NAIp'] = (table['NAI']) / (table['SUM']) * 100
 		table['VAIp'] = (table['VAI']) / (table['SUM']) * 100
 		table['OAIp'] = (table['OAI']) / (table['SUM']) * 100
+
+###Summary Functions###
+
 
 ###CBER Summary###
 #Create dataframe for cber inspections 
