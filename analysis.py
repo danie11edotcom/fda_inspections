@@ -34,8 +34,9 @@ def add_percent(table):
 		table['OAIp'] = (table['OAI']) / (table['SUM']) * 100
 
 ###Summary Functions###
-def create_center_df(full_df, center):
-	center.lower() = full_df[full_df.center == center]
+# def create_center_df(full_df, center):
+# 	center_lower = center.lower()
+# 	center_lower = full_df[full_df.center == center]
 
 
 ###CBER Summary###
